@@ -1,7 +1,7 @@
 import { codes } from "micromark-util-symbol";
 import { Code, Effects, Extension, State } from "micromark-util-types";
 
-export function rubySyntax(): Extension {
+export function sapphireSyntax(): Extension {
 	return {
 		text: {
 			// '['
