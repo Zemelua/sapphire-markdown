@@ -7,5 +7,9 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsc"
+	},
+	"dependencies": {
+		"micromark-util-symbol": "^2.0.1",
+		"micromark-util-types": "^2.0.2"
 	}
 }
