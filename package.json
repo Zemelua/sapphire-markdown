@@ -1,0 +1,16 @@
+{
+	"name": "sapphire-markdown",
+	"version": "1.0.0",
+	"scripts": {
+		"build": "npm run build -ws"
+	},
+	"workspaces": [
+		"micromark-sapphire-extension",
+		"mdast-util-sapphire",
+		"remark-sapphire"
+	],
+	"private": true,
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	}
+}

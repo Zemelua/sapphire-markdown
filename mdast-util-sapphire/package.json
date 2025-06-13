@@ -1,0 +1,11 @@
+{
+	"name": "mdast-util-sapphire",
+	"version": "1.0.0",
+	"description": "MDAST utility to handle ruby annotation syntax.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc"
+	}
+}

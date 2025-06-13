@@ -1,0 +1,11 @@
+{
+	"name": "remark-sapphire",
+	"version": "1.0.0",
+	"description": "Remark plugin to support ruby annotations in Markdown.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc"
+	}
+}
