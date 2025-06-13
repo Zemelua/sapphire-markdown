@@ -13,5 +13,6 @@ declare module "micromark-util-types" {
 		rubyTextContent: "rubyTextContent";
 		rubyTextSegment: "rubyTextSegment";
 		rubyTextSegmentString: "rubyTextSegmentString";
+		rubyDivider: "rubyDivider";
 	}
 }

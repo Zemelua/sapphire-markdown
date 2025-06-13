@@ -34,7 +34,9 @@ function tokenize(effects: Effects, ok: State, nok: State): State {
 		if (code === codes.verticalBar) {
 			effects.exit("rubyLabelSegmentText");
 			effects.exit("rubyLabelSegment");
+			effects.enter("rubyDivider");
 			effects.consume(code);
+			effects.exit("rubyDivider");
 			effects.enter("rubyLabelSegment");
 			effects.enter("rubyLabelSegmentText", { contentType: "text" });
 
@@ -91,7 +93,9 @@ function tokenize(effects: Effects, ok: State, nok: State): State {
 		if (code === codes.verticalBar) {
 			effects.exit("rubyTextSegmentString");
 			effects.exit("rubyTextSegment");
+			effects.enter("rubyDivider");
 			effects.consume(code);
+			effects.exit("rubyDivider");
 			effects.enter("rubyTextSegment");
 			effects.enter("rubyTextSegmentString", { contentType: "string" });
 
