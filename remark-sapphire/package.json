@@ -1,6 +1,6 @@
 {
 	"name": "remark-sapphire",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Remark plugin to support ruby annotations in Markdown.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -11,6 +11,8 @@
 		"test": "vitest test"
 	},
 	"dependencies": {
+		"mdast-util-sapphire": "^1.0.1",
+		"micromark-sapphire-extension": "^1.0.1",
 		"unified": "^11.0.5"
 	},
 	"devDependencies": {
