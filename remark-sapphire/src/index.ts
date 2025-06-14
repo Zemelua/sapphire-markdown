@@ -1,3 +1,4 @@
+import { Root } from 'mdast';
 import { Extension as FromMarkdownExtension } from 'mdast-util-from-markdown';
 import { sapphireMdastFromMarkdown } from "mdast-util-sapphire";
 import { sapphireSyntax } from "micromark-sapphire-extension";
@@ -11,7 +12,7 @@ declare module 'unified' {
 	}
 }
 
-export const remarkSapphire: Plugin = function (this: Processor) {
+export const remarkSapphire: Plugin<void[], Root> = function (this: Processor) {
 	const data = this.data();
 
 	const micromarkExtensions = data.micromarkExtensions || (data.micromarkExtensions = []);
