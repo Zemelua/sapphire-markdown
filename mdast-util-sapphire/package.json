@@ -6,6 +6,10 @@
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"test": "vitest test"
+	},
+	"dependencies": {
+		"mdast-util-from-markdown": "^2.0.2"
 	}
 }
