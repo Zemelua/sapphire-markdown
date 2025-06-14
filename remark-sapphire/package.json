@@ -6,6 +6,15 @@
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"test": "vitest test"
+	},
+	"dependencies": {
+		"unified": "^11.0.5"
+	},
+	"devDependencies": {
+		"rehype-stringify": "^10.0.1",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.2"
 	}
 }
