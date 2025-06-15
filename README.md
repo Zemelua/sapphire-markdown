@@ -1,77 +1,77 @@
 # 💎 Sapphire Markdown
 
-Markdown でルビ（ふりがな）を記述するための独自文法と、それをパース・変換するためのツール群。
+Custom syntax and tooling for writing ruby (furigana) annotations in Markdown.
 
-## 文法
+## Syntax
 
-### 基本的な記述
+### Basic Notation
 
-以下のように記述することで、文字とそのルビを表現することができます。
+You can write ruby annotations using the following format:
 
 ```markdown
 [蒼玉]<<サファイア>>
 ```
 
-実装によりますが、これは基本的に次のように表示されます：
+Depending on the implementation, this will typically be rendered as:
 <ruby> 蒼玉 <rt> サファイア </rt> </ruby>
 
-`[` `]`で囲まれた部分はベーステキストを、`<<` `>>`で囲まれた部分はルビテキストを表します。\
-ルビテキストの囲み`<<` `>>`は不等号記号（`U+003C`, `U+003E`）です。\
-伝統的には、日本語環境においてルビを表すさい`《` `》`（二重山括弧）が使用されてきたようです。（[青空文庫 ↗](https://www.aozora.gr.jp/aozora-manual/index-input.html#markup) など。）\
-💎 sapphire 文法では、入力のしやすさ、互換性などの理由から、より一般的な記号である不等号記号を重ねることで表現しています。
+The text enclosed in `[` `]` is the base text, and the text enclosed in `<<` `>>` is the ruby (reading).\
+The ruby delimiters `<<` and `>>` are double less-than and greater-than signs (`U+003C`, `U+003E`).\
+Traditionally, in Japanese environments, double corner brackets like `《` `》` have been used to indicate ruby (e.g., [Aozora Bunko ↗](https://www.aozora.gr.jp/aozora-manual/index-input.html#markup)).\
+In 💎 Sapphire Markdown, we use more common and accessible ASCII symbols (`<<` `>>`) for ease of typing and better compatibility.
 
-### 分割表現
+### Split Notation
 
-ルビを文字ごとに振るために、以下のようにテキストを分割して記述することができます。
+To add ruby readings to individual characters or segments, you can split the text as follows:
 
 ```markdown
 [水|天|一|碧]<<すい|てん|いっ|ぺき>>
 ```
 
-ベーステキストとルビテキストは、同じ数に分割される必要があります。\
-これは、次のように記述するのと同じことです。
+The base text and ruby text must be split into the same number of segments.\
+This is equivalent to:
 
 ```markdown
 [水]<<すい>> [天]<<てん>> [一]<<いっ>> [碧]<<ぺき>>
 ```
 
-### 分割表現によるルビのスキップ
+### Skipping Ruby in Split Notation
 
-> [!CAUTION]\
-> この記法は現在未実装です。将来のバージョンで対応する予定です。
+> [!CAUTION]
+> This feature is currently not implemented. It is planned for a future release.
 
-分割記法では、ルビを振りたくないベーステキストに対応するルビ部分に何も書かないことで、そのルビをスキップできます。つまり、
+In split notation, you can skip ruby for certain parts by leaving the corresponding ruby segment empty. For example:
 
 ```markdown
 [青天|の|霹靂]<<せいてん||へきれき>>
 ```
 
-このように記述することで、2番目のベーステキスト「の」にはルビが振られません。\
-これは、次のように記述するのと同じことです。
+Here, no ruby is applied to the second base segment "の".
+This is equivalent to:
 
 ```markdown
 [青天]<<せいてん>> の [霹靂]<<へきれき>>
 ```
 
-### その他
+### Others
 
-強調、インラインコードなどのインライン要素をベーステキストに含めることができます。
+You can include inline elements such as emphasis or inline code inside the base text:
 
 ```markdown
 [*青色発光*]<<あおいろはっこう>>ダイオード
-[**未開拓**市場]<<ブルーオーシャン>> 
+[**未開拓**市場]<<ブルーオーシャン>>
 [`const blue = "#1A4472"`]<<アントワープブルー>>
 ```
 
-## 構成
+## Structure
 
-このリポジトリには、次の micromark / remark エコシステム向けの拡張が含まれています：
+This repository includes the following extensions for the micromark / remark ecosystem:
 
 - [micromark-sapphire-extension](/micromark-sapphire-extension)\
-  Micromark 向けの拡張。Markdown のルビ構文をトークン化します。
+  An extension for Micromark that tokenizes the ruby syntax in Markdown.
 
 - [mdast-util-sapphire](/mdast-util-sapphire)\
-  Micromark の出力を mdast（Markdown 抽象構文木）ノードに変換するためのユーティリティ。
+  A utility that converts Micromark output into mdast (Markdown Abstract Syntax Tree) nodes.
 
 - [remark-sapphire](/remark-sapphire)\
-  remark 向けのプラグイン。Markdown のルビ構文を処理して HTML 出力などに反映します。
+  A plugin for Remark that processes the ruby syntax and reflects it in the HTML or other output.
