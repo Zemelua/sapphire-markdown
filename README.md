@@ -1,6 +1,6 @@
-# 💎 micromark-extension-sapphire
+# 💎 Sapphire Markdown
 
-ルビ（ふりがな）の導入を実装する micromark 拡張です。
+Markdown でルビ（ふりがな）を記述するための独自文法と、それをパース・変換するためのツール群。
 
 ## 文法
 
@@ -62,3 +62,16 @@
 [**未開拓**市場]<<ブルーオーシャン>> 
 [`const blue = "#1A4472"`]<<アントワープブルー>>
 ```
+
+## 構成
+
+このリポジトリには、次の micromark / remark エコシステム向けの拡張が含まれています：
+
+- [micromark-sapphire-extension](/micromark-sapphire-extension)\
+  Micromark 向けの拡張。Markdown のルビ構文をトークン化します。
+
+- [mdast-util-sapphire](/mdast-util-sapphire)\
+  Micromark の出力を mdast（Markdown 抽象構文木）ノードに変換するためのユーティリティ。
+
+- [remark-sapphire](/remark-sapphire)\
+  remark 向けのプラグイン。Markdown のルビ構文を処理して HTML 出力などに反映します。
